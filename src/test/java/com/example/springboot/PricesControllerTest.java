@@ -2,6 +2,9 @@ package com.example.springboot;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.text.SimpleDateFormat;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -13,7 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.example.springboot.prices.controller.request.QueryRequest;
+import com.example.springboot.prices.model.QueryRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
@@ -27,13 +30,20 @@ public class PricesControllerTest {
 	
 	@Autowired
 	private ObjectMapper objectMapper;
-	  
+	
+	SimpleDateFormat sdf;
+	
+	@BeforeAll
+	public void init(){
+		new SimpleDateFormat("yyyy-MM-dd");
+	}
+	
 	@Test
 	@DisplayName("Test 1: petición a las 19:00 del día 14 del producto 35455 para la brand 1 (CADENA1)")
 	public void queryTest1() throws Exception {
 		
 		QueryRequest queryRequest = new QueryRequest();
-		queryRequest.setAppDate("2020-06-14-10.00.00");
+		queryRequest.setAppDate(sdf.parse("2022-08-02"));
 		queryRequest.setProductId(35455);
 		queryRequest.setBrandId(1);
 		
@@ -55,7 +65,7 @@ public class PricesControllerTest {
 	public void queryTest2() throws Exception {
 		
 		QueryRequest queryRequest = new QueryRequest();
-		queryRequest.setAppDate("2020-06-14-16.00.00");
+		queryRequest.setAppDate(sdf.parse("2022-08-02"));
 		queryRequest.setProductId(35455);
 		queryRequest.setBrandId(1);
 		
@@ -77,7 +87,7 @@ public class PricesControllerTest {
 	public void queryTest3() throws Exception {
 		
 		QueryRequest queryRequest = new QueryRequest();
-		queryRequest.setAppDate("2020-06-14-16.00.00");
+		queryRequest.setAppDate(sdf.parse("2022-08-02"));
 		queryRequest.setProductId(35455);
 		queryRequest.setBrandId(1);
 		
@@ -99,7 +109,7 @@ public class PricesControllerTest {
 	public void queryTest4() throws Exception {
 		
 		QueryRequest queryRequest = new QueryRequest();
-		queryRequest.setAppDate("2020-06-14-16.00.00");
+		queryRequest.setAppDate(sdf.parse("2022-08-02"));
 		queryRequest.setProductId(35455);
 		queryRequest.setBrandId(1);
 		
@@ -121,7 +131,7 @@ public class PricesControllerTest {
 	public void queryTest5() throws Exception {
 		
 		QueryRequest queryRequest = new QueryRequest();
-		queryRequest.setAppDate("2020-06-14-16.00.00");
+		queryRequest.setAppDate(sdf.parse("2022-08-02"));
 		queryRequest.setProductId(35455);
 		queryRequest.setBrandId(1);
 		

@@ -1,9 +1,9 @@
-package com.example.springboot.prices.controller.response;
+package com.example.springboot.prices.model;
 
 import lombok.Data;
 
 @Data
-public class ItemResult {
+public class ItemResponse {
 	
 	Integer productId;
 

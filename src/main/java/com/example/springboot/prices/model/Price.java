@@ -1,34 +1,34 @@
 package com.example.springboot.prices.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+//import jakarta.persistence.Column;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.Id;
+//import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Entity
-@Table(name="PRICES")
+@javax.persistence.Entity
+@javax.persistence.Table(name="PRICES")
 public class Price {
 
-	@Id
-	@GeneratedValue
+	@javax.persistence.Id
+	@javax.persistence.GeneratedValue
 	private int id;
 	
-    @Column(name = "BRAND_ID")
+    @javax.persistence.Column(name = "BRAND_ID")
 	private int brandId;
 
-	@Column(name="START_DATE")
+	@javax.persistence.Column(name="START_DATE")
 	private String startDate;
 
-	@Column(name="END_DATE")
+	@javax.persistence.Column(name="END_DATE")
 	private String endDate;
 	
-	@Column(name="PRICE_LIST")
+	@javax.persistence.Column(name="PRICE_LIST")
 	private int priceList;
 	
-	@Column(name="PRODUCT_ID")
+	@javax.persistence.Column(name="PRODUCT_ID")
 	private int productId;
 	
 	private boolean priority;
